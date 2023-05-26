@@ -1,3 +1,6 @@
+import EventTargetPolyfill from './event-target';
+import EventPolyfill from "./event";
+
 const root =
   (typeof globalThis !== "undefined" && globalThis) ||
   (typeof self !== "undefined" && self) ||
@@ -21,14 +24,5 @@ const polyfillEventTarget = () => {
   return false;
 }
 
-if (polyfillEvent()) {
-  import('./event').then(module => {
-    root.Event = module.default;
-  });
-}
-
-if (polyfillEventTarget()) {
-  import('./event-target').then(module => {
-    root.EventTarget = module.default;
-  });
-}
+if (polyfillEvent()) root.Event = EventPolyfill;
+if (polyfillEventTarget()) root.EventTarget = EventTargetPolyfill;

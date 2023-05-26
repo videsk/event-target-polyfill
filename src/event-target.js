@@ -1,10 +1,10 @@
-function EventTarget() {
+function EventTargetPolyfill() {
   this.__listeners = new Map();
 }
 
-EventTarget.prototype = Object.create(Object.prototype);
+EventTargetPolyfill.prototype = Object.create(Object.prototype);
 
-EventTarget.prototype.addEventListener = function (type, listener, options) {
+EventTargetPolyfill.prototype.addEventListener = function (type, listener, options) {
   if (arguments.length < 2) throw new TypeError(`Failed to execute 'addEventListener' on 'EventTarget': 2 arguments required, but only ${arguments.length} present.`);
 
   const actualType = type.toString();
@@ -14,7 +14,7 @@ EventTarget.prototype.addEventListener = function (type, listener, options) {
   if (!listenersForType.has(listener)) listenersForType.set(listener, options);
 }
 
-EventTarget.prototype.removeEventListener = function (type, listener, options) {
+EventTargetPolyfill.prototype.removeEventListener = function (type, listener, options) {
   if (arguments.length < 2) throw new TypeError(`Failed to execute 'removeEventListener' on 'EventTarget': 2 arguments required, but only ${arguments.length} present.`);
 
   const actualType = type.toString();
@@ -24,7 +24,7 @@ EventTarget.prototype.removeEventListener = function (type, listener, options) {
   if (listenersForType.has(listener)) listenersForType.delete(listener);
 }
 
-EventTarget.prototype.dispatchEvent = function (event) {
+EventTargetPolyfill.prototype.dispatchEvent = function (event) {
   if (!(event instanceof Event)) throw new TypeError( `Failed to execute 'dispatchEvent' on 'EventTarget': parameter 1 is not of type 'Event'.`);
 
   const type = event.type;
@@ -55,4 +55,4 @@ EventTarget.prototype.dispatchEvent = function (event) {
   return true;
 }
 
-export default EventTarget;
+export default EventTargetPolyfill;
