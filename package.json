@@ -1,19 +1,20 @@
 {
-  "name": "event-target-polyfill",
-  "version": "0.0.3",
+  "name": "@videsk/polyfill-event-target",
+  "version": "1.0.0",
   "description": "An EventTarget Polyfill",
-  "main": "index.js",
-  "exports": {
-    ".": "./index.js"
+  "main": "src/index.js",
+  "browser": "dist/event-target.polyfill.min.js",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "rollup-plugin-terser": "^7.0.2"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-    "test": "node ./test.js"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benlesh/event-target-polyfill.git"
+    "url": "git+https://github.com/videsk/event-target-polyfill.git"
   },
   "keywords": [
     "EventTarget",
@@ -22,7 +23,7 @@
   "author": "Ben Lesh <ben@benlesh.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benlesh/event-target-polyfill/issues"
+    "url": "https://github.com/videsk/event-target-polyfill/issues"
   },
-  "homepage": "https://github.com/benlesh/event-target-polyfill#readme"
+  "homepage": "https://github.com/videsk/event-target-polyfill#readme"
 }

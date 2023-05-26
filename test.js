@@ -18,7 +18,7 @@
 }
 
 // Now we pull it in.
-require("./index.js");
+require("./src");
 
 if (typeof EventTarget !== "function") {
   fail("EventTarget does not exist");
