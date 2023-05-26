@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/event-target-polyfill.svg)](https://badge.fury.io/js/event-target-polyfill)
 ![Node.js CI](https://github.com/benlesh/event-target-polyfill/workflows/Node.js%20CI/badge.svg)
 
-# event-target-polyfill
+# EventTarget Polyfill
 
 A polyfill for `EventTarget` (and `Event`), meant to run in older version of node or possibly IE 11, that has the most accurate set of characteristics of `EventTarget` that can be provided.
 
@@ -13,7 +13,7 @@ MDN: [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
 ## Usage
 
 ```
-import 'event-target-polyfill';
+import '@videsk/polyfill-event-target';
 
 const et = new EventTarget();
 
